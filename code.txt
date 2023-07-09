@@ -1,0 +1,144 @@
+#include<iostream>
+using namespace std;
+ float converter(void);
+
+int main(){
+    char startValue;
+    char selectAgain;
+    
+    start:
+    cout<<"********* Welcome to Currency Converter Application **************"<<endl;
+    cout<<"******** Please follow the instruction ************"<<endl;
+    cout<<"You can have currencies dollar, rupees, euro, pound"<<endl;
+    cout<<"You can type a,b,c,d respectively for currencies dollar, rupee, euro, pound"<<endl;
+    cout<<"Enter currency1 which you want to convert"<<endl;
+    cout<<"Enter the value for currency1"<<endl;
+    cout<<"Enter currency2 in which you want to convert currency1"<<endl;
+    cout<<"(a)dollar (b)rupees (c)euro (d)pound"<<endl;
+    cout<<"Please press s to start"<<endl;
+    selectchoice:
+    cin>>startValue;
+    if(startValue =='s' || startValue=='S'){
+        float finalValue=converter();
+        cout<<"Result is "<<finalValue<<endl;
+        cout<<"Do you want to use the application again ? y or n"<<endl;
+        typeAgain:
+        cin>>selectAgain;
+        if(selectAgain=='y' || selectAgain=='Y'){
+            goto start;
+        }
+        else if(selectAgain=='n' || selectAgain=='N'){
+            cout<<"Thank you for our application !"<<endl;
+        }
+        else{
+            cout<<"You have entered wrong value, please type again"<<endl;
+            goto typeAgain;
+        }
+    }
+    else{
+        cout<<"You have entered wrong value, please type s"<<endl;
+        goto selectchoice;
+    }
+}
+float converter(){
+    char currName1;
+    char currName2;
+    float currency1;
+    float currency2;
+    currlevel:
+    cout<<"Enter currency1 Name"<<endl;
+    cin>>currName1;
+    cout<<"Enter currency1 value"<<endl;
+    cin>>currency1;
+     switch(currName1){
+    case 'a':
+        currlevel1:
+        cout<<"Enter currency2 Name"<<endl;
+        cin>>currName2;
+        if(currName2=='a' || currName2=='A'){
+        currency2=currency1*1;    
+     }   
+      else if(currName2=='b' || currName2=='B'){
+        currency2=currency1*82.62;
+     }
+      else if(currName2 =='c' || currName2 == 'C'){
+        currency2=currency1*0.91;
+      }else if(currName2 =='d' || currName2 == 'D'){
+        currency2=currency1*0.77;
+      }
+      else{
+        cout<<"You have entered wrong value,please type again"<<endl;
+        goto currlevel1;
+      }
+      break;
+    
+    case 'b':
+        currlevel2:
+        cout<<"Enter currency2 Name"<<endl;
+        cin>>currName2;
+        if(currName2=='a' || currName2=='A'){
+        currency2=currency1*0.012;
+     }   
+      else if(currName2=='b' || currName2=='B'){
+        currency2=currency1*1;
+     }
+      else if(currName2 =='c' || currName2 == 'C'){
+        currency2=currency1*0.011;
+      }else if(currName2 =='d' || currName2 == 'D'){
+        currency2=currency1*0.0094;
+      }
+      else{
+        cout<<"You have entered wrong value,please type again"<<endl;
+        goto currlevel2;
+      }
+      break;
+
+    case 'c':
+        currlevel3:
+        cout<<"Enter currency2 Name"<<endl;
+        cin>>currName2;
+        if(currName2=='a' || currName2=='A'){
+        currency2=currency1*1.10;
+     }   
+      else if(currName2=='b' || currName2=='B'){
+        currency2=currency1*90.63;
+     }
+      else if(currName2 =='c' || currName2 == 'C'){
+        currency2=currency1*1;
+      }else if(currName2 =='d' || currName2 == 'D'){
+        currency2=currency1*0.85;
+      }
+      else{
+        cout<<"You have entered wrong value,please type again"<<endl;
+        goto currlevel3;
+       }
+       break;
+
+    case 'd':
+        currlevel4:
+        cout<<"Enter currency2 Name"<<endl;
+        cin>>currName2;
+        if(currName2=='a' || currName2=='A'){
+        currency2=currency1*1.28;
+     }   
+      else if(currName2=='b' || currName2=='B'){
+        currency2=currency1*106.07;
+     }
+      else if(currName2 =='c' || currName2 == 'C'){
+        currency2=currency1*1.17;
+      }else if(currName2 =='d' || currName2 == 'D'){
+        currency2=currency1*1;
+      }
+      else{
+        cout<<"You have entered wrong value,please type again"<<endl;
+        goto currlevel4;
+       }
+       break;
+
+       default :{
+           cout<<"You have entered wring value, please type again"<<endl;
+        goto currlevel;  
+       }
+    }
+    return 0;
+}

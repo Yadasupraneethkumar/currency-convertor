@@ -140,5 +140,5 @@ float converter(){
         goto currlevel;  
        }
     }
-    return 0;
+    return currency2;
 }
